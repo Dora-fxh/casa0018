@@ -16,7 +16,7 @@ What is the problem you are trying to solve
 
 ## Application Overview
 Thinking back to the various application diagrams you have seen through the module - how would you describe an overview of the building blocks of your project - how do they connect, what do the component parts include.
-
+![avatar](/figures/test_on_arducam.png)
 *probably ~200 words and a diagram is usually good to convey your design!*
 
 ## Data
