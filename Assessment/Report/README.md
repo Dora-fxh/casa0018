@@ -86,7 +86,7 @@ The initial learning rate is also changed. We choose four values: 0.00001, 0.000
 Then, we use above parameters and model structure we selected to train the model.The model trained is tested in three ways. 
 Firstly, We randomly select one of the picture in test set to show the probability and which class it is classfied to see whether it is correct. Secondly, we use the whole test set to evaluate the model and get a loss of 0.1953 and an accuracy of 0.9329.
 Lastly, we use the opencv library to call the camera of the computer. our classification model is combined with the face detection model to detect whether the person in front of the camera wears a mask. From the video we can see that it will not misclassify my hand as the mask and when the mask wears beneath the nose, it can recognize it as no-mask, it's exactly we want.
-https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4
+<video src='https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4'></video>
 
 figures/test.mp4
 
