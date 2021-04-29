@@ -1,4 +1,4 @@
-#Face mask detection
+# Face mask detection
 
 This folder contains an outline of the content for mask detection. It has 2 parts:
 
