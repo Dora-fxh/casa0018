@@ -61,7 +61,7 @@ where $\hat{y_i}$ is the i-th scalar value in the model output, $y_i$ is the cor
 Root Mean Square Propagation
 ## Results and Observations
 Synthesis the main results and observations you made from building the project. Did it work perfectly? Why not? What worked and what didn't? Why? What would you do next if you had more time?  
-<iframe height=498 width=510 src="https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4">
+https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4
 
 *probably ~300 words and remember images and diagrams bring results to life!*
 
