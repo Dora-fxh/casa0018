@@ -51,35 +51,49 @@ For the activation function, 'relu' (Rectified Linear Unit - ReLU) activation fu
 ![activation function](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/activation%20function.png)
 
 What's more We use binary crossentropy as the loss function. It evaluated on the log loss between the predicted values and the ground truth, and because of it, the accuracy in metrics is the binary_accuracy.
+
 ![binary](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/binary.png)
+
 where $\hat{y_i}$ is the ith scalar value in the model output, $y_i$ is the corresponding target value, and output size is the number of scalar values in the model output.
 Root Mean Square Propagation is used as the optimizer
+
 ![optimizer](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/accuracy.png)
+
 Besides, we set the early stop to help us break the training process. When there are 5 epochs with no improvement, the training will be stopped. Also we monitors the validation accuracy and if no improvement is seen for 2 epochs, the learning rate will be reduced to half of it (no less than 1e-5).
 
 We also tried the model with dropout layer. It can probabilistically remove the inputs of a layer, which makes the network more robust to the inputs and  is often used after the pooling layers or the two dense fully connected layers (Brownlee, 2018). Additionally, the number of convolution layer and pooling layer is also changed to make the model more complex. The reason we do not choose them will be discussed later in the experiments part.
 
 ## Experiments
 The following figure is the result get from our final model, as we can see, it has no over-fitting problem, so the dropout layer may not be useful. 
+
 ![result1](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/2noDropout.png)
+
 The results of adding the dropout layer confirmed our hypothesis. It loses some accuracy and the distance between two lines (training and validation) is not stable as the former one.
+
 ![result2](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/2dropout.png)
 
 We also tried 6 layers of convolution layer and pooling layer with and without dropout layer. This time, the latter one performs better. It seems the dropout layer is effective in more complicated models. 
+
 ![result3](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/3nodrop.png)
 ![result4](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/3dropout.png)
+
 The more layers, the more problems that need to be solved, such as the selection of activation function and the number of neurons, and the improvement is very weak, so we decide to keep model simple—with 2 convolution layer. 
 Thus, we choose our current model.
 The initial learning rate is also changed. We choose four values: 0.00001, 0.0001, 0.001, and 0.01. From the following figures, we can see that when the learning rate is small, the convergence speed is slow and when the learning rate is large, the oscillation does not converge. Setting the learning rate to 0.0001 and 0.001 has a similar result. We finally decide to set it to 0.001 since it processes faster and is more unlikely to fail into local optimality.
+
 ![lr](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/chooselr.png)
+
 Then, we use above parameters and model structure we selected to train the model.The model trained is tested in three ways. 
 Firstly, We randomly select one of the picture in test set to show the probability and which class it is classfied to see whether it is correct. Secondly, we use the whole test set to evaluate the model and get a loss of 0.1953 and an accuracy of 0.9329.
 Lastly, we use the opencv library to call the camera of the computer. our classification model is combined with the face detection model to detect whether the person in front of the camera wears a mask. From the video we can see that it will not misclassify my hand as the mask and when the mask wears beneath the nose, it can recognize it as no-mask, it's exactly we want.
+https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4
+figures/test.mp4
 <iframe height=280 width=510 src="https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/test.mp4">
+  
 ## Results and Observations
 The model has indeed improved than the model presented in the presentation. The reason may due to our data. The data set we choose to train the model have diverse images, and the label it has is accuracy. It is the main reason that we can detected a person who do not wear mask correctly as no-mask. What's more, the accuracy in the test set is still relatively high which indicates that the model we built has no overfitting problem and the generalization ability is good. The reason behind might be what we did in the ImageDataGenerator part. Besides, We found that the dropout layer is more useful when the model is complicated. 
 However, there are some limitations in the experiment. When using the webcam to test the model, we can only detect the front face, as the face detection model can only recognize the front face. We will keep finding the suitable model.
-In addition, we only change the initial learning rate, other important parameters, such as the batch size is not explored. The optimizer Adam is recognized as a better choice sometimes. Later, it will also be checked. The most important is that we should explore in detail which images are wrongly classified in the test set. Whwnen dealing all the limitations, the model might be further improved .
+In addition, we only change the initial learning rate, other important parameters, such as the batch size is not explored. The optimizer Adam is recognized as a better choice sometimes. Later, it will also be checked. The most important is that we should explore in detail which images are wrongly classified in the test set. When dealing all the limitations, the model might be further improved.
 
 
 ## Bibliography
