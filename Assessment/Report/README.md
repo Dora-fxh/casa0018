@@ -57,7 +57,7 @@ What's more We use binary crossentropy as the loss function. It evaluated on the
 where $\hat{y_i}$ is the ith scalar value in the model output, $y_i$ is the corresponding target value, and output size is the number of scalar values in the model output.
 Root Mean Square Propagation is used as the optimizer
 
-![optimizer](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/accuracy.png)
+![optimizer](https://github.com/Dora-fxh/casa0018/blob/main/Assessment/Report/figures/root%20mean%20square.png)
 
 Besides, we set the early stop to help us break the training process. When there are 5 epochs with no improvement, the training will be stopped. Also we monitors the validation accuracy and if no improvement is seen for 2 epochs, the learning rate will be reduced to half of it (no less than 1e-5).
 
@@ -90,7 +90,7 @@ Lastly, we use the opencv library to call the camera of the computer. our classi
 <video src="https://github.com/Dora-fxh/casa0018/raw/main/Assessment/Report/figures/test.mp4"  controls="controls" width="500" height="300"></video>
 
 ## Results and Observations
-The model has indeed improved than the model presented in the presentation. The reason may due to our data. The data set we choose to train the model have diverse images, and the label it has is accuracy. It is the main reason that we can detected a person who do not wear mask correctly as no-mask. What's more, the accuracy in the test set is still relatively high which indicates that the model we built has no overfitting problem and the generalization ability is good. The reason behind might be what we did in the ImageDataGenerator part. Besides, We found that the dropout layer is more useful when the model is complicated (). 
+The model has indeed improved than the model presented in the presentation(both ipynb files are in the guthub link at the top). The reason may due to our data. The data set we choose to train the model have diverse images, and the label it has is accuracy. It is the main reason that we can detected a person who do not wear mask correctly as no-mask. What's more, the accuracy in the test set is still relatively high which indicates that the model we built has no overfitting problem and the generalization ability is good. The reason behind might be what we did in the ImageDataGenerator part. Besides, We found that the dropout layer is more useful when the model is complicated. 
 However, there are some limitations in the experiment. When using the webcam to test the model, we can only detect the front face, as the face detection model can only recognize the front face. We will keep finding the suitable model.
 In addition, we only change the initial learning rate, other important parameters, such as the batch size is not explored. The optimizer Adam is recognized as a better choice sometimes. Later, it will also be checked. The most important is that we should explore in detail which images are wrongly classified in the test set. When dealing all the limitations, the model might be further improved.
 
