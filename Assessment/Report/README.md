@@ -127,7 +127,7 @@ WHO. (2021). ‘Weekly epidemiological update - 2 March 2021’. Who, (March), p
 I, Xiaohan Feng, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.
 
 
-* Xiaohan Feng *
-* 2021/4/29
+ Xiaohan Feng 
+ 2021/4/29
 
 
