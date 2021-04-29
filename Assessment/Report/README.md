@@ -88,7 +88,9 @@ Then, we use above parameters and model structure we selected to train the model
 Firstly, We randomly select one of the picture in test set to show the probability and which class it is classfied to see whether it is correct. Secondly, we use the whole test set to evaluate the model and get a loss of 0.1953 and an accuracy of 0.9329.
 Lastly, we use the opencv library to call the camera of the computer. our classification model is combined with the face detection model to detect whether the person in front of the camera wears a mask. From the video (test.mp4) we can see that it will not misclassify my hand as the mask and when the mask wears beneath the nose, it can recognize it as no-mask, it's exactly we want.
 
-<video src="https://github.com/Dora-fxh/casa0018/raw/main/Assessment/Report/figures/test.mp4"  controls="controls" width="500" height="300"></video>
+
+https://user-images.githubusercontent.com/71642902/116625754-c325b800-a97c-11eb-997c-304d3a65efef.mp4
+
 
 ## Results and Observations
 The model has indeed improved than the model presented in the presentation(both ipynb files are in the guthub link at the top). The reason may due to our data. The data set we choose to train the model have diverse images, and the label it has is accuracy. It is the main reason that we can detected a person who do not wear mask correctly as no-mask. What's more, the accuracy in the test set is still relatively high which indicates that the model we built has no overfitting problem and the generalization ability is good. The reason behind might be what we did in the ImageDataGenerator part. Besides, We found that the dropout layer is more useful when the model is complicated. 
