@@ -1,11 +1,11 @@
 # Project purpose
 Our project aims to automatically identify whether faces detected are with or without masks. It could be applied in some public places and signal the guards when finding someone who does not abide by the regulations. In this case, guards do not need to patrol around or staring surveillance cameras all the time. A lot of work for guards can be saved and the effectiveness is also improved. 
-# about data
+# About data
 The main data set we used is collected by AIZOO and can be downloaded [here](https://drive.google.com/file/d/1QspxOJMDf_rAWVV7AU_Nc0rjo1_EPEDW/view).
 It contains two folders, one is for training which has 6120 images (3006 of them come from the MAFA dataset with face masks and 3114 from WIDER Face without masks), the other is as the validation set and has 1839 pictures(contains 799 mask samples and 1040 no-mask samples). Although the dataset with mask and with no masks was mixed together, every image has a corresponding XML file which includes the label, the bounding box of the face. Thus, we use these information in the XML file to process the data (crop only the face) and divide them into mask and no mask set. The processing part is included in the **faceMask.ipynb** and the processed data is uploaded which is the **base.zip**. Besides, the data for testing is also uploaded, which is in the **test-set** folder get from [this github](https://github.com/chandrikadeb7/Face-Mask-Detection).
-# about python file
+# About python file
 There are two python files, one is the **previousModel.ipynb**, the other is **faceMask.ipynb**. 'previousModel.ipynb' contains many 'wrong' explorition we did and the model trained there uses the data that is not diverse, so the overfitting problem exists. The **faceMask.ipynb** is the final version, it uses the new dataset and some other methods were employed(For example, we randomly rescale, flip, shear, zoom, reotate and shift the photo to produce more samples to adapt the changeable environment). Thus, the generalization ability is hugely improved and has lesser overfitting problem. previousModel.ipynb can not be run by restrat kernal and run all, since some parts uses tensorflow 2.X, like in producing the frozen_graph.pd (we build and switch to a new conda environment to run this part). Thus, this file is mainly used to record how different model is saved like tflite and make the comparison with the model built by faceMask.ipynb.
-# about models folder
+# About models folder
 It contains some types of the models we saved. The model we finally produced and used to test the new data and do the mask detedction using webcam is not here since it exceed the limit of github(more than 100M), but can be downloaded [here](https://www.dropbox.com/h?preview=maskmodel.h5)
 
 # Prerequisites
