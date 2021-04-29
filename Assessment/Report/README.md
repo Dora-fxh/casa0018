@@ -24,12 +24,17 @@ For the face detection model, at first, the paddle library is used. However, it�
 ## Data
 The main data set we used is collected by AIZOO and can be downloaded [here]<https://drive.google.com/file/d/1QspxOJMDf_rAWVV7AU_Nc0rjo1_EPEDW/view>.
 It contains two folders, one is for training which has 6120 images (3006 of them come from the MAFA dataset with face masks and 3114 from WIDER Face without masks), the other is as the validation set and has 1839 pictures(contains 799 mask samples and 1040 no-mask samples). Although the dataset with mask and with no masks was mixed together, every image has a corresponding XML file which includes the label, the bounding box of the face, etc. Thus, we use the label in the XML file to divide the data set into what is similar to the ‘Cats vs Dogs’ example. During this process, two images in the training folder are detected with the wrong filename extension(not belong to any suffix names of the image file like webp, jpeg, jpg, and png.), so they were deleted. At the same time, all the figures are filled into squares since directly squeeze them into a square will distort the figures. An example of an original picture and its distorted picture and the filled picture is as follows：
+
 ![avatar](figures/datafirstprocess.png)
 
 However, when all the experiment was done, we find that no matter what parameters we adjust, the accuracy is still relatively low (less than 70%). The reason may relate to our dataset. Our model is a classification model, if there are many other distractions in the background (like there are some other people besides our object), the accuracy will be largely influenced. In this case, we decide to crop only the face in the picture by the bounding boxes got from the XML File. Additionally, we realize that although the model might perform well in the existing “perfect” dataset, it might underfit the new data. Thus, we will not fill the cropped data into squares. These three pictures show the initial dataset and what the data processed by two different processing methods like. 
+
 ![avatar](figures/Data preprocess.png)
+
 Moreover, when generating data using ImageDataGenerator function, we randomly rescale, flip, shear, zoom, reotate and shift the photo to produce more samples to adapt the changeable environment. The figure below shows how our generator works.
+
 ![avatar](figures/randomzoom.png)
+
 Another dataset which is similar to our cropped dataset and consists of 700 images belonging to two classes(with mask: 350, without mask: 350) from [here]<https://github.com/chandrikadeb7/Face-Mask-Detection>. It is only used as the testing set to roughly test our model, because in its mask folder, there are some people whose mask did not cover their nose. In our model, we do not want the masks are recognized even if they are not properly worn.
 
 ## Model
